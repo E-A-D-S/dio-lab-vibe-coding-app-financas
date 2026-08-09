@@ -548,7 +548,9 @@ A saída não era esconder melhor a chave. Era **não ter chave**.
 Foi um susto de verdade, porque eu tinha prazo. Duas coisas me salvaram:
 
 1. **O desafio não exige código funcionando** — está escrito com todas as letras no enunciado. Com o PRD, as três entregas e os prints, a entrega já era válida.
-2. **A sincronização de duas vias com o GitHub.** Conectei o repositório, e a partir daí passei a editar o código direto e dar push — o Lovable puxa as mudanças de volta sozinho, e isso **não consome crédito nenhum**. Continuei o desenvolvimento por fora, com apoio de IA, e o app seguiu sendo o app do Lovable.
+2. **A sincronização de duas vias com o GitHub.** Conectei o repositório e segui dali: **as alterações continuaram sendo geradas por IA a partir das minhas instruções** — não escrevi uma única linha à mão em nenhum momento do projeto — e o push devolve tudo para dentro do Lovable, que sincroniza sozinho e **não consome crédito nenhum**. O app seguiu sendo o app do Lovable; mudou só por onde eu conversava com a IA.
+
+> 🔎 **Registrando com precisão, porque a honestidade do processo é o que está sendo avaliado:** a fundação do app foi gerada **no Lovable, por prompt**. O PRD foi lapidado **no Copilot**. Da parada dos créditos em diante, o código continuou sendo **gerado por IA a partir de instruções minhas** e devolvido ao Lovable pelo GitHub. Em nenhuma etapa houve digitação manual de código — o que muda entre as fases é a janela onde eu conversava, não o método.
 
 **O visual saiu contido demais na primeira versão.** Eu tinha pedido "nada genérico" e a IA entregou algo sóbrio e disciplinado — mas apagado. A paleta de seis cores das cédulas só aparecia em barras de 8 pixels no relatório, e o guilhoché estava a 6% de opacidade, praticamente invisível.
 
@@ -612,7 +614,14 @@ Abra o endereço que aparecer no terminal.
 ## 📚 Sobre o desafio
 
 Projeto desenvolvido para o desafio **App de Organização de Finanças Pessoais com Vibe Coding**, da [DIO](https://dio.me).
-Ferramentas: **Lovable** (geração e hospedagem), **Microsoft Copilot** (revisão do PRD) e **GitHub** (sincronização de duas vias).
+
+**Nenhuma linha de código foi escrita à mão.** Tudo — modelo de dados, telas, lógica de conversa, correções — saiu de prompt e instrução para IA, do primeiro commit ao último. É literalmente o que o desafio propõe: *"a prova de que você domina o raciocínio de Vibe Coding, mesmo sem escrever uma única linha de código."*
+
+| Ferramenta | Papel |
+|---|---|
+| **Lovable** | Geração da fundação do app, preview e hospedagem |
+| **Microsoft Copilot** | Revisão e lapidação do PRD |
+| **GitHub** | Sincronização de duas vias com o Lovable, sem consumir crédito |
 
 ---
 
