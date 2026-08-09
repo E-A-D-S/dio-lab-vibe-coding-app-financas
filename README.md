@@ -133,7 +133,7 @@ A Nina não responde sim ou não. Ela mostra a conta:
 ```
 Cabe, mas aperta.
 Sobrariam R$ 280 livres neste mês.
-Sua meta "viagem" atrasaria 8 dias.
+Sua meta "viagem" atrasaria 24 dias.
 ```
 
 **O cálculo é transparente** (nada de "a IA achou"):
@@ -146,6 +146,8 @@ valor ≤ metade do saldo livre  →  "Cabe tranquilo."
 valor ≤ saldo livre            →  "Cabe, mas aperta."
 valor > saldo livre            →  "Esse mês não fecha."
 ```
+
+> 🧮 **Todos os exemplos deste README são da mesma pessoa:** recebe **R$ 3.800** por mês e guarda **R$ 500**. Se você refizer as contas com esses dois números, elas fecham — inclusive as horas de trabalho e os dias de meta. Um cálculo que se diz transparente precisa aguentar ser conferido.
 
 **Quando a compra não cabe, entra uma quarta linha** — a saída concreta, no lugar da bronca:
 
@@ -168,7 +170,7 @@ Ela nunca sugere um teto quando a compra já coube — seria ruído.
 Ao clicar em `Deixei pra lá`, a Nina responde:
 
 ```
-Anotado. Você já preservou R$ 1.240 — 92h do seu trabalho.
+Anotado. Você já preservou R$ 1.240 — 9 dias do seu trabalho.
 ```
 
 ### 💰 Perguntar como você está
@@ -217,7 +219,7 @@ Aqui está a inversão que define o produto: **o relatório abre pelo que você 
 ```
 VOCÊ PRESERVOU
 R$ 1.240
-Equivale a 92h do seu trabalho · 74 dias da sua meta
+Equivale a 9 dias do seu trabalho · 74 dias da sua meta
 ```
 
 Logo abaixo, as últimas compras que você deixou passar, com data e valor.
