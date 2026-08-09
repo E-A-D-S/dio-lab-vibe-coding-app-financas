@@ -12,6 +12,8 @@ Construí o conceito conversando com IA — PRD, prompts, agente, telas e um app
 
 > Abra o link e clique em **Ver exemplo**, no canto superior direito: o app carrega um mês inteiro de dados e você vê tudo funcionando sem precisar digitar nada.
 
+> Este repositório é a **entrega do desafio** — o PRD, os prints do processo e a reflexão. O código do app vive no repositório acima, que o Lovable mantém sincronizado.
+
 ---
 
 ## 📌 Índice
@@ -26,9 +28,10 @@ Construí o conceito conversando com IA — PRD, prompts, agente, telas e um app
 - [O PRD (meu prompt final)](#-o-prd--meu-prompt-final)
 - [Os prompts que usei](#-os-prompts-que-usei)
 - [Prints das interações](#-prints-das-interações-com-a-ia)
-- [Decisões de projeto](#-decisões-de-projeto)
+- [Decisões de projeto](#️-decisões-de-projeto)
 - [Reflexão sobre o processo](#-reflexão-sobre-o-processo)
-- [Stack e como rodar](#-stack-e-como-rodar)
+- [Stack e como rodar](#️-stack-e-como-rodar)
+- [Sobre o desafio](#-sobre-o-desafio)
 
 ---
 
@@ -125,7 +128,7 @@ dá pra comprar um fone de 250?
 consigo gastar 800 num celular?
 ```
 
-A Nina não responde sim ou não. Ela mostra a conta, em quatro linhas:
+A Nina não responde sim ou não. Ela mostra a conta:
 
 ```
 Cabe, mas aperta.
@@ -145,11 +148,12 @@ valor ≤ saldo livre            →  "Cabe, mas aperta."
 valor > saldo livre            →  "Esse mês não fecha."
 ```
 
-Se não couber, ela nunca dá bronca — oferece saída:
+**A quarta linha só aparece quando a compra não cabe** — é a saída que ela oferece no lugar da bronca. Quando cabe, não faz sentido sugerir um valor menor, então ficam três linhas:
 
 ```
-Esse mês não fecha — faltariam R$ 60.
-Se esperar 12 dias, cabe sem mexer na meta.
+Cabe tranquilo.
+Sobrariam R$ 1.850 livres neste mês.
+Sua meta "viagem" atrasaria 100 dias.
 ```
 
 **E aí aparecem os dois botões:**
@@ -370,11 +374,14 @@ O Poupa nunca mostra apenas dinheiro. Todo valor vem com significado pessoal:
   R$ 120  ≈ 8,8 horas do seu trabalho  ≈ 2 dias da sua meta
 Fórmula: horas = valor ÷ (rendaMensal ÷ 220)
 
-# Método de resposta da Nina — sempre quatro etapas
-1. O item e o valor
+# Método de resposta da Nina para "posso comprar isso?"
+1. O veredito, curto e sem julgamento
 2. Quanto sobraria livre no mês
-3. Quantos dias isso adia a meta
-4. O valor máximo confortável hoje, se o pedido não couber
+3. Quantos dias isso adia a meta (se houver meta definida)
+4. O valor máximo confortável hoje — SOMENTE quando a compra não couber
+
+As três primeiras linhas são fixas; a quarta é condicional. Quando a compra cabe,
+sugerir um teto seria ruído.
 
 # Cálculo (determinístico, sem ambiguidade)
 saldoLivre = rendaMensal − somaGastosDoMes − guardarPorMes
@@ -455,21 +462,49 @@ Os créditos acabaram antes do previsto. Conto isso na [reflexão](#-reflexão-s
 
 ## 📸 Prints das interações com a IA
 
-> 📎 _Substitua os caminhos abaixo pelos seus prints, salvos em `docs/prints/`._
+### 1. O PRD sendo revisado no Copilot Web
 
-| Etapa | Print |
-|---|---|
-| PRD revisado no Copilot Web | `![Revisão no Copilot](docs/prints/01-copilot-revisao.png)` |
-| Project Knowledge preenchido no Lovable | `![Knowledge](docs/prints/02-knowledge.png)` |
-| Agente Financeiro, Fluxo de Telas e Plano de MVP | `![Três entregas](docs/prints/03-entregas.png)` |
-| Checklist de autoverificação da fundação | `![Checklist](docs/prints/04-checklist.png)` |
-| App: conversa e "posso comprar isso?" | `![Conversa](docs/prints/05-conversa.png)` |
-| App: relatório com o dinheiro preservado | `![Relatório](docs/prints/06-relatorio.png)` |
-| App nos três idiomas | `![Idiomas](docs/prints/07-idiomas.png)` |
+Colei o PRD e pedi crítica. Vieram dez sugestões — aceitei nove e recusei duas, com fundamento.
+
+![PRD revisado no Copilot](docs/prints/01-copilot-revisao.png)
+
+![Sugestões de melhoria do Copilot](docs/prints/02-copilot-melhorias.png)
+
+### 2. O PRD no Project Knowledge do Lovable
+
+Aqui, e não num prompt: o contexto passa a valer em **toda** mensagem, sem gastar crédito.
+
+![Project Knowledge preenchido](docs/prints/03-knowledge.png)
+
+### 3. As três entregas pedidas pelo desafio
+
+O primeiro prompt não construiu nada — pediu o **Agente Financeiro**, o **Fluxo de Telas** e o **Plano de MVP** em texto.
+
+![Prompt 0 e a definição da Nina](docs/prints/04-prompt-0-agente.png)
+
+### 4. O app: registrar gasto conversando
+
+![Conversa registrando gastos](docs/prints/05-conversa.png)
+
+### 5. O app: "posso comprar isso?" e os dois botões
+
+![Pergunta de compra com Comprei e Deixei pra lá](docs/prints/06-posso-comprar.png)
+
+### 6. Corrigir uma classificação errada em um toque
+
+![Correção de categoria](docs/prints/07-correcao-categoria.png)
+
+### 7. O relatório abrindo pelo dinheiro preservado
+
+![Relatório com dinheiro preservado](docs/prints/08-relatorio.png)
+
+E quando ainda não há nada preservado, o zero **ensina** em vez de ficar mudo:
+
+![Estado vazio do dinheiro preservado](docs/prints/09-relatorio-vazio.png)
 
 ---
 
-## 🧭 Decisões de projeto
+## ⚖️ Decisões de projeto
 
 Cinco decisões que moldaram o app, cada uma com a alternativa que descartei e o custo que aceitei.
 
@@ -596,13 +631,21 @@ O quarto me incomodou mais que os outros. O saldo está no cabeçalho, calculado
 
 ## 🛠️ Stack e como rodar
 
-**React 19 · TypeScript · Vite · Tailwind CSS 4 · TanStack Router · localStorage**
+**React 19 · TypeScript · Vite · Tailwind CSS 4 · TanStack Start / Router · Nitro · localStorage**
 
-Sem backend, sem banco de dados, sem API externa, sem chave de API.
+O projeto nasce do template TanStack Start do Lovable, que traz **Nitro** como motor de servidor e capacidade de renderização no servidor. **Nada disso é usado para dados.** Não existe rota de API, banco, autenticação nem chave de serviço: cada transação, meta e decisão vive no `localStorage` do navegador de quem usa. O servidor entrega os arquivos da página e nada mais.
+
+Registro isso por precisão: a seção de segurança se apoia em "não existe servidor guardando nada", e é justo mostrar que o motor de servidor existe no template — só não passa dado por ele.
 
 ```bash
 git clone https://github.com/E-A-D-S/poupa-money-buddy.git
 cd poupa-money-buddy
+
+# o projeto foi instalado com bun (há um bun.lock na raiz)
+bun install
+bun run dev
+
+# funciona com npm também, mas resolve versões próprias
 npm install
 npm run dev
 ```
