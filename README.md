@@ -506,7 +506,9 @@ Aqui, e não num prompt: o contexto passa a valer em **toda** mensagem, sem gast
 
 O primeiro prompt não construiu nada — pediu o **Agente Financeiro**, o **Fluxo de Telas** e o **Plano de MVP** em texto.
 
-![Prompt 0 e a definição da Nina](docs/prints/04-prompt-0-agente.png)
+![O primeiro prompt enviado ao Lovable e a definição da Nina](docs/prints/04-prompt-0-agente.png)
+
+> No print, esse prompt aparece rotulado como **PROMPT 0** — foi assim que eu numerei o arquivo enquanto montava a sequência, contando o Knowledge como passo zero. Aqui no texto ele é o **Prompt 1**, porque o Knowledge não consome crédito e não é mensagem de chat. Mesmo prompt, duas contagens.
 
 ### 4. O app: registrar gasto conversando
 
