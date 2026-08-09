@@ -147,7 +147,9 @@ valor ≤ saldo livre            →  "Cabe, mas aperta."
 valor > saldo livre            →  "Esse mês não fecha."
 ```
 
-> 🧮 **Todos os exemplos deste README são da mesma pessoa:** recebe **R$ 3.800** por mês e guarda **R$ 500**. Se você refizer as contas com esses dois números, elas fecham — inclusive as horas de trabalho e os dias de meta. Um cálculo que se diz transparente precisa aguentar ser conferido.
+> 🧮 **Os exemplos escritos neste README são todos da mesma pessoa:** recebe **R$ 3.800** por mês e guarda **R$ 500**. Refaça as contas com esses dois números e elas fecham — inclusive as horas de trabalho e os dias de meta. Um cálculo que se diz transparente precisa aguentar ser conferido.
+>
+> **Os prints não seguem esse perfil**, e isso é proposital: são capturas de sessões de teste reais, feitas em dias e horários diferentes, cada uma com a renda e a meta que eu tinha cadastrado naquele momento. Por isso os números deles não batem entre si nem com os exemplos acima. São registro do que aconteceu, não ilustração do texto — e eu preferi manter assim a encenar telas bonitinhas com números combinando.
 
 **Quando a compra não cabe, entra uma quarta linha** — a saída concreta, no lugar da bronca:
 
