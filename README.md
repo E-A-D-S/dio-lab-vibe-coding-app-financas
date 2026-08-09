@@ -139,13 +139,27 @@ Sua meta "viagem" atrasaria 24 dias.
 **O cálculo é transparente** (nada de "a IA achou"):
 
 ```
-saldoLivre    = renda do mês − gastos já feitos − quanto você quer guardar
+saldoLivre     = renda do mês − gastos já feitos − quanto você quer guardar
 dias de atraso = valor ÷ (quanto você guarda por mês ÷ 30)
 
 valor ≤ metade do saldo livre  →  "Cabe tranquilo."
 valor ≤ saldo livre            →  "Cabe, mas aperta."
 valor > saldo livre            →  "Esse mês não fecha."
 ```
+
+**E a unidade do tempo de trabalho muda conforme o tamanho do valor**, para nunca virar um número que ninguém consegue imaginar:
+
+```
+horas = valor ÷ (renda mensal ÷ 220)      220h/mês ≈ jornada de 44h semanais
+
+menos de 1 hora   →  mostra em MINUTOS
+menos de 24 horas →  mostra em HORAS
+24 horas ou mais  →  mostra em DIAS DE TRABALHO, dividindo por 8
+```
+
+Por isso R$ 45 aparece como `2,6h do seu trabalho` e R$ 1.240 aparece como `9 dias do seu trabalho`: 1.240 dá 71,8 horas, que em jornadas de 8 horas são 9 dias. "Setenta e duas horas" não significa nada para ninguém; "nove dias de trabalho" significa.
+
+> ⚠️ **Atenção a uma armadilha de leitura:** `dias do seu trabalho` e `dias da sua meta` são coisas diferentes. O primeiro é quanto tempo você trabalhou para pagar aquilo; o segundo é quanto o seu objetivo foi adiado. A palavra é a mesma, a conta não.
 
 > 🧮 **Os exemplos escritos neste README são todos da mesma pessoa:** recebe **R$ 3.800** por mês e guarda **R$ 500**. Refaça as contas com esses dois números e elas fecham — inclusive as horas de trabalho e os dias de meta. Um cálculo que se diz transparente precisa aguentar ser conferido.
 >
@@ -379,8 +393,10 @@ SEM DEPENDER DE COR — toda informação importante tem sinal, ícone e texto.
 O Poupa nunca mostra apenas dinheiro. Todo valor vem com significado pessoal.
 Para quem recebe R$ 3.800 por mês e guarda R$ 500:
   R$ 120  ≈ 6,9 horas do seu trabalho  ≈ 7 dias da sua meta
-Fórmulas: horas = valor ÷ (rendaMensal ÷ 220)
+Fórmulas: horas        = valor ÷ (rendaMensal ÷ 220)
           dias de meta = valor ÷ (guardarPorMes ÷ 30)
+Unidade do tempo de trabalho: < 1h vira minutos; < 24h fica em horas;
+a partir de 24h vira DIAS DE TRABALHO, dividindo as horas por 8.
 
 # Método de resposta da Nina para "posso comprar isso?"
 1. O veredito, curto e sem julgamento
