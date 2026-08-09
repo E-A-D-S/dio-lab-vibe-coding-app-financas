@@ -8,11 +8,11 @@ Construí o conceito conversando com IA — PRD, prompts, agente, telas e um app
 | | |
 |---|---|
 | 🔗 **App no ar** | **[poupa-money-buddy.lovable.app](https://poupa-money-buddy.lovable.app)** |
-| 💻 **Código-fonte** | [github.com/E-A-D-S/poupa-money-buddy](https://github.com/E-A-D-S/poupa-money-buddy) |
+| 💻 **Código-fonte** | [poupa-money-buddy](https://github.com/E-A-D-S/poupa-money-buddy) |
 
 > Abra o link e clique em **Ver exemplo**, no canto superior direito: o app carrega um mês inteiro de dados e você vê tudo funcionando sem precisar digitar nada.
 
-> Este repositório é a **entrega do desafio** — o PRD, os prints do processo e a reflexão. O código do app vive no repositório acima, que o Lovable mantém sincronizado.
+> **Você está na entrega do desafio** — o fork do repositório-base da DIO, com o PRD, os prints e a reflexão. O código do app é gerado e hospedado pelo Lovable no repositório do link acima, que ele mantém sincronizado. O conteúdo deste README é o mesmo nos dois.
 
 ---
 
@@ -133,8 +133,7 @@ A Nina não responde sim ou não. Ela mostra a conta:
 ```
 Cabe, mas aperta.
 Sobrariam R$ 280 livres neste mês.
-Sua meta atrasaria 8 dias.
-Se quiser manter a meta intacta, o confortável hoje seria R$ 220.
+Sua meta "viagem" atrasaria 8 dias.
 ```
 
 **O cálculo é transparente** (nada de "a IA achou"):
@@ -148,13 +147,16 @@ valor ≤ saldo livre            →  "Cabe, mas aperta."
 valor > saldo livre            →  "Esse mês não fecha."
 ```
 
-**A quarta linha só aparece quando a compra não cabe** — é a saída que ela oferece no lugar da bronca. Quando cabe, não faz sentido sugerir um valor menor, então ficam três linhas:
+**Quando a compra não cabe, entra uma quarta linha** — a saída concreta, no lugar da bronca:
 
 ```
-Cabe tranquilo.
-Sobrariam R$ 1.850 livres neste mês.
-Sua meta "viagem" atrasaria 100 dias.
+Esse mês não fecha.
+Sobrariam R$ 0 livres neste mês.
+Sua meta "viagem" atrasaria 60 dias.
+Se quiser manter a meta intacta, o confortável hoje seria R$ 340.
 ```
+
+Ela nunca sugere um teto quando a compra já coube — seria ruído.
 
 **E aí aparecem os dois botões:**
 
@@ -370,9 +372,11 @@ SEM SURPRESA — toda conclusão vem com a conta que a produziu.
 SEM DEPENDER DE COR — toda informação importante tem sinal, ícone e texto.
 
 # Moeda Pessoal (fundamento, não funcionalidade)
-O Poupa nunca mostra apenas dinheiro. Todo valor vem com significado pessoal:
-  R$ 120  ≈ 8,8 horas do seu trabalho  ≈ 2 dias da sua meta
-Fórmula: horas = valor ÷ (rendaMensal ÷ 220)
+O Poupa nunca mostra apenas dinheiro. Todo valor vem com significado pessoal.
+Para quem recebe R$ 3.800 por mês e guarda R$ 500:
+  R$ 120  ≈ 6,9 horas do seu trabalho  ≈ 7 dias da sua meta
+Fórmulas: horas = valor ÷ (rendaMensal ÷ 220)
+          dias de meta = valor ÷ (guardarPorMes ÷ 30)
 
 # Método de resposta da Nina para "posso comprar isso?"
 1. O veredito, curto e sem julgamento
@@ -454,9 +458,11 @@ O prompt terminava com um **checklist de autoverificação** obrigando a IA a co
 
 > 🎁 **Bônus inesperado:** o "posso comprar isso?" *não estava* neste prompt — mas como o método e o cálculo estavam no Knowledge, a IA implementou por conta própria. Foi a prova de que o Knowledge estava fazendo efeito.
 
-### O que veio depois
+### O terceiro prompt nunca aconteceu
 
-Os créditos acabaram antes do previsto. Conto isso na [reflexão](#-reflexão-sobre-o-processo).
+Meu plano tinha mais dois: um para o "posso comprar isso?" com as metas, outro para o relatório e o modo demonstração. **Os créditos acabaram antes.**
+
+Não foi desperdício: o prompt da fundação entregou mais do que eu pedi — o "posso comprar isso?" veio junto, porque o método e a fórmula estavam no Knowledge. O que faltava foi construído depois, pelo caminho do GitHub. Conto na [reflexão](#-reflexão-sobre-o-processo).
 
 ---
 
